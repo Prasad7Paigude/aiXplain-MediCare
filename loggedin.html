@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare - Healthcare Solutions</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-text">MediCare</div>
+            </a>
+            
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Home</a>
+        
+                <a href="ai-doctor.html" class="nav-link">AI Doctor</a>
+                <a href="training.html" class="nav-link">Training</a>
+                <a href="medicine-delivery.html" class="nav-link">Medicine Delivery</a>
+                <a href="hospital-beds.html" class="nav-link">Hospital Beds</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+            
+            <!-- User Profile Dropdown -->
+            <div class="user-profile">
+                <div class="user-info" id="userProfileToggle">
+                    <i data-lucide="user" class="user-icon"></i>
+                    <span class="user-name" id="displayUsername">User Name</span>
+                    <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                </div>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#" class="dropdown-item text-red-500" id="logoutBtn">
+                        <i data-lucide="log-out"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </div>
+            
+            <button class="menu-button">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title fade-in">Advanced Healthcare Solutions for Everyone</h1>
+                <p class="hero-subtitle fade-in">Experience the future of healthcare with our AI-powered services and remote consultations from top medical professionals.</p>
+                <div class="hero-buttons fade-in">
+                    <a href="ai-doctor.html" class="btn btn-primary btn-lg">
+                        <i data-lucide="activity"></i> Try AI Doctor
+                    </a>
+                    <a href="appointment.html" class="btn btn-outline btn-lg">
+                        <i data-lucide="calendar"></i> Book Appointment
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image fade-in">
+                <div class="dna-helix" id="dnaHelix"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section-padding">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Our Healthcare Services</h2>
+                <p class="section-subtitle">Comprehensive solutions for your well-being</p>
+            </div>
+            
+            <div class="services-grid fade-in">
+                <div class="service-card feature-card">
+                    <div class="service-icon">
+                        <i data-lucide="bot"></i>
+                    </div>
+                    <h3>AI Health Assistant</h3>
+                    <p>Get instant medical advice from our Gemini-powered AI assistant that analyzes symptoms and recommends treatments.</p>
+                    <a href="ai-doctor.html" class="btn btn-primary btn-sm">Try Now</a>
+                </div>
+                
+                <div class="service-card feature-card">
+                    <div class="service-icon">
+                        <i data-lucide="pill"></i>
+                    </div>
+                    <h3>Medicine Delivery</h3>
+                    <p>Order prescription and over-the-counter medicines for quick and reliable doorstep delivery.</p>
+                    <a href="medicine-delivery.html" class="btn btn-primary btn-sm">Order Now</a>
+                </div>
+                
+                <div class="service-card feature-card">
+                    <div class="service-icon">
+                        <i data-lucide="stethoscope"></i>
+                    </div>
+                    <h3>Doctor Appointment</h3>
+                    <p>Connect with experienced doctors for virtual or in-person consultations at your convenience.</p>
+                    <a href="appointment.html" class="btn btn-primary btn-sm">Book Now</a>
+                </div>
+                
+                <div class="service-card feature-card">
+                    <div class="service-icon">
+                        <i data-lucide="building-2"></i>
+                    </div>
+                    <h3>Hospital Bed Booking</h3>
+                    <p>Reserve hospital beds in advance at partner hospitals and ensure timely care during emergencies.</p>
+                    <a href="hospital-beds.html" class="btn btn-primary btn-sm">Check Availability</a>
+                </div>
+                
+                <div class="service-card feature-card">
+                    <div class="service-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <h3>Medical Training</h3>
+                    <p>Access comprehensive training programs and resources for healthcare professionals and students.</p>
+                    <a href="training.html" class="btn btn-primary btn-sm">Explore Courses</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment section-padding bg-medicare-gradient">
+        <div class="container">
+            <div class="appointment-grid">
+                <div class="appointment-content fade-in">
+                    <h2 class="section-title">Book an Appointment</h2>
+                    <p class="section-subtitle">Schedule a consultation with our experienced doctors</p>
+                    
+                    <ul class="appointment-features">
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Choose from 100+ specialists</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Same-day appointments available</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Video consultations option</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Free follow-up check</span>
+                        </li>
+                    </ul>
+
+                    <div class="appointment-cta">
+                        <a href="appointment.html" class="btn btn-primary btn-lg">
+                            <i data-lucide="calendar"></i>
+                            Book Your Appointment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-padding">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Patient Testimonials</h2>
+                <p class="section-subtitle">What our patients say about us</p>
+            </div>
+            
+            <div class="testimonials-slider fade-in">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The AI Doctor feature provided me with accurate initial assessment of my symptoms. The follow-up with the specialist was seamless and very helpful."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Priya Sharma">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Priya Sharma</h4>
+                            <p>Delhi, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The medicine delivery service is reliable and fast. I received my prescription medications within hours of placing the order. Highly recommended!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajesh Kumar">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>Mumbai, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I had an emergency and needed to book a hospital bed. The process was straightforward and I got confirmed booking within minutes. The staff was very helpful."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ananya Patel">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Ananya Patel</h4>
+                            <p>Bangalore, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats section-padding bg-primary-light">
+        <div class="container">
+            <div class="stats-grid fade-in">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div class="stat-number" data-count="50000">0</div>
+                    <div class="stat-label">Patients Served</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="stethoscope"></i>
+                    </div>
+                    <div class="stat-number" data-count="200">0</div>
+                    <div class="stat-label">Expert Doctors</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="activity"></i>
+                    </div>
+                    <div class="stat-number" data-count="30000">0</div>
+                    <div class="stat-label">Successful Treatments</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="bot"></i>
+                    </div>
+                    <div class="stat-number" data-count="98.12">0</div>
+                    <div class="stat-label">Bot Accuracy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta section-padding">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2 class="cta-title">Ready to experience better healthcare?</h2>
+                <p class="cta-subtitle">Sign up now and get a free health consultation with our experts.</p>
+                <div class="cta-buttons">
+                    <a href="signup.html" class="btn btn-primary btn-lg">Get Started</a>
+                    <a href="about.html" class="btn btn-outline btn-lg">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>MediCare</h3>
+                    <p>Providing innovative healthcare solutions for everyone.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="ai-doctor.html">AI Doctor</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="medicine-delivery.html">Medicine Delivery</a></li>
+                        <li><a href="hospital-beds.html">Hospital Beds</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Telemedicine</a></li>
+                        <li><a href="#">Health Checkups</a></li>
+                        <li><a href="#">Medical Tourism</a></li>
+                        <li><a href="#">Lab Tests</a></li>
+                        <li><a href="#">Mental Health</a></li>
+                        <li><a href="#">Emergency Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i data-lucide="map-pin"></i>
+                            <span>123 Healthcare Ave, Medical District, City - 12345</span>
+                        </li>
+                        <li>
+                            <i data-lucide="phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i data-lucide="mail"></i>
+                            <span>support@medicare.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> MediCare. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button id="chat-toggle" class="chat-toggle">
+            <i data-lucide="message-circle"></i>
+        </button>
+        
+        <div id="chat-window" class="chat-window hidden">
+            <div class="chat-header">
+                <h3>MediCare Chat</h3>
+                <button id="close-chat" class="close-chat">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages"></div>
+            
+            <div class="chat-input">
+                <input type="text" id="chat-input" placeholder="Type your message..." disabled>
+                <button class="send-button" disabled>
+                    <i data-lucide="send"></i>
+                </button>
+            </div>
+            
+            <div class="login-prompt">
+                Please <a href="login.html">log in</a> to chat with our support team
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="common.js"></script>
+    <script src="main.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

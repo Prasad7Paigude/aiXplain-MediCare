@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Beds - MediCare</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="toast-custom.css">
+    <link rel="stylesheet" href="hospital-beds.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-text">MediCare</div>
+            </a>
+            
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="ai-doctor.html" class="nav-link">AI Doctor</a>
+                <a href="medicine-delivery.html" class="nav-link">Medicine Delivery</a>
+                <a href="hospital-beds.html" class="nav-link active">Hospital Beds</a>
+                <a href="training.html" class="nav-link">Training</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-ghost">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            
+            <div class="user-profile hidden relative">
+                <div class="user-info cursor-pointer" id="userProfileToggle">
+                    <i data-lucide="user-circle" class="icon-md"></i>
+                    <span class="user-name">User Name</span>
+                    <i data-lucide="chevron-down" class="icon-sm dropdown-arrow"></i>
+                </div>
+                <div class="dropdown-menu hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50" id="dropdownMenu">
+                    <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                    <a href="#" id="logoutBtn" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+                </div>
+            </div>
+            
+            <button class="menu-button">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="hero-section bg-gradient-primary text-white">
+            <div class="container">
+                <div class="hero-content text-center">
+                    <h1 class="hero-title fade-in">Hospital Bed Booking</h1>
+                    <p class="hero-subtitle fade-in">Find and reserve hospital beds across multiple facilities in real-time</p>
+                    <button id="bookBedBtn" class="btn btn-light btn-lg mt-4 fade-in">
+                        <i data-lucide="bed" class="icon-sm mr-2"></i>Book a Bed Now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Available Beds Section -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header text-center mb-8 fade-in">
+                    <h2 class="section-title">Available Hospital Beds</h2>
+                    <p class="section-subtitle">Quick book from our partner hospitals</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+                    <!-- City Hospital -->
+                    <div class="card hover-shadow">
+                        <img src="https://placehold.co/600x400/004175/white?text=City+Hospital" alt="City Hospital" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">City Hospital</h3>
+                            <p class="card-text mb-2"><i data-lucide="map-pin" class="icon-sm text-primary"></i> Central City</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge badge-success">General Ward: 5</span>
+                                <span class="badge badge-success">Private: 3</span>
+                                <span class="badge badge-warning">ICU: 1</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn btn-outline btn-sm" onclick="viewHospitalDetails('city-hospital')">
+                                    <i data-lucide="info" class="icon-sm"></i> Details
+                                </button>
+                                <button class="btn btn-primary btn-sm" onclick="quickBookBed('city-hospital')">
+                                    <i data-lucide="calendar" class="icon-sm"></i> Book
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Apollo Hospital -->
+                    <div class="card hover-shadow">
+                        <img src="https://placehold.co/600x400/004175/white?text=Apollo" alt="Apollo Hospital" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">Apollo Hospital</h3>
+                            <p class="card-text mb-2"><i data-lucide="map-pin" class="icon-sm text-primary"></i> North City</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge badge-success">General Ward: 8</span>
+                                <span class="badge badge-success">Private: 4</span>
+                                <span class="badge badge-success">ICU: 2</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn btn-outline btn-sm" onclick="viewHospitalDetails('apollo')">
+                                    <i data-lucide="info" class="icon-sm"></i> Details
+                                </button>
+                                <button class="btn btn-primary btn-sm" onclick="quickBookBed('apollo')">
+                                    <i data-lucide="calendar" class="icon-sm"></i> Book
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fortis Hospital -->
+                    <div class="card hover-shadow">
+                        <img src="https://placehold.co/600x400/004175/white?text=Fortis" alt="Fortis Hospital" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">Fortis Hospital</h3>
+                            <p class="card-text mb-2"><i data-lucide="map-pin" class="icon-sm text-primary"></i> South City</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge badge-success">General Ward: 6</span>
+                                <span class="badge badge-warning">Private: 1</span>
+                                <span class="badge badge-success">ICU: 3</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn btn-outline btn-sm" onclick="viewHospitalDetails('fortis')">
+                                    <i data-lucide="info" class="icon-sm"></i> Details
+                                </button>
+                                <button class="btn btn-primary btn-sm" onclick="quickBookBed('fortis')">
+                                    <i data-lucide="calendar" class="icon-sm"></i> Book
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Max Healthcare -->
+                    <div class="card hover-shadow">
+                        <img src="https://placehold.co/600x400/004175/white?text=Max" alt="Max Healthcare" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">Max Healthcare</h3>
+                            <p class="card-text mb-2"><i data-lucide="map-pin" class="icon-sm text-primary"></i> East City</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge badge-success">General Ward: 10</span>
+                                <span class="badge badge-success">Private: 5</span>
+                                <span class="badge badge-warning">ICU: 2</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn btn-outline btn-sm" onclick="viewHospitalDetails('max')">
+                                    <i data-lucide="info" class="icon-sm"></i> Details
+                                </button>
+                                <button class="btn btn-primary btn-sm" onclick="quickBookBed('max')">
+                                    <i data-lucide="calendar" class="icon-sm"></i> Book
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bed Booking Form Modal -->
+        <div id="bedBookingModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" id="closeModal">
+                    <i data-lucide="x"></i>
+                </button>
+                <div class="auth-header">
+                    <h2 class="auth-title">Book a Hospital Bed</h2>
+                    <p class="auth-subtitle">Fill in the details to reserve a hospital bed</p>
+                </div>
+                
+                <form id="bedBookingForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="patientName">Patient Name</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="user"></i>
+                            <input type="text" id="patientName" name="patientName" placeholder="Enter patient name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="patientEmail">Email Address</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="mail"></i>
+                            <input type="email" id="patientEmail" name="patientEmail" placeholder="Enter email address" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="patientContact">Contact Number</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="phone"></i>
+                            <input type="tel" id="patientContact" name="patientContact" placeholder="Enter contact number" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hospitalName">Hospital Name</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="building"></i>
+                            <select id="hospitalName" name="hospitalName" required>
+                                <option value="">Select hospital</option>
+                                <option value="City Hospital">City Hospital</option>
+                                <option value="Apollo Hospital">Apollo Hospital</option>
+                                <option value="Fortis Hospital">Fortis Hospital</option>
+                                <option value="Max Healthcare">Max Healthcare</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wardType">Ward Type</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="bed"></i>
+                            <select id="wardType" name="wardType" required>
+                                <option value="">Select ward type</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="admissionDate">Admission Date</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="calendar"></i>
+                            <input type="date" id="admissionDate" name="admissionDate" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i data-lucide="check-circle"></i> Book Bed
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h3 class="footer-logo">MediCare</h3>
+                        <p class="footer-description">
+                            Providing advanced healthcare solutions with a perfect blend of technology and medical expertise.
+                        </p>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="ai-doctor.html">AI Doctor</a></li>
+                            <li><a href="appointment.html">Book Appointment</a></li>
+                            <li><a href="medicine-delivery.html">Medicine Delivery</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Contact Us</h4>
+                        <ul class="footer-links">
+                            <li><i data-lucide="mail"></i> support@medicare.com</li>
+                            <li><i data-lucide="phone"></i> +1 234 567 890</li>
+                            <li><i data-lucide="map-pin"></i> 123 Healthcare St, Medical City</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#"><i data-lucide="facebook"></i></a>
+                            <a href="#"><i data-lucide="twitter"></i></a>
+                            <a href="#"><i data-lucide="instagram"></i></a>
+                            <a href="#"><i data-lucide="linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; <span id="current-year">2024</span> MediCare. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="common.js"></script>
+    <script src="hospital-beds.js"></script>
+</body>
+</html>

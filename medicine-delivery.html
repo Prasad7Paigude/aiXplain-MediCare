@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Delivery - MediCare</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="toast-custom.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-text">MediCare</div>
+            </a>
+            
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+            
+                <a href="ai-doctor.html" class="nav-link">AI Doctor</a>
+                <a href="medicine-delivery.html" class="nav-link active">Medicine Delivery</a>
+                <a href="hospital-beds.html" class="nav-link">Hospital Beds</a>
+                <a href="training.html" class="nav-link">Training</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-ghost">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            
+            <div class="user-profile hidden relative">
+                <div class="user-info cursor-pointer" id="userProfileToggle">
+                    <i data-lucide="user-circle" class="icon-md"></i>
+                    <span class="user-name">User Name</span>
+                    <i data-lucide="chevron-down" class="icon-sm dropdown-arrow"></i>
+                </div>
+                <div class="dropdown-menu hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50" id="dropdownMenu">
+                    <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                    <a href="#" id="logoutBtn" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+                </div>
+            </div>
+            
+            <button class="menu-button">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 fade-in">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">Medicine Delivery</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Order essential medications online and get them delivered to your doorstep
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <div class="bg-white rounded-xl shadow-sm p-4 mb-6 fade-in">
+                        <div class="relative">
+                            <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" style="width: 20px; height: 20px;"></i>
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search medicines by name or generic compound..."
+                                class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
+                            />
+                        </div>
+                    </div>
+                    
+                    <div id="medicinesList" class="space-y-4 fade-in">
+                        <!-- Medicines will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 sticky top-24 fade-in">
+                        <h2 class="text-xl font-semibold mb-4">Your Cart</h2>
+                        
+                        <div id="emptyCart" class="text-center py-8">
+                            <div class="w-20 h-20 mx-auto mb-4 text-gray-300">
+                                <i data-lucide="shopping-cart" style="width: 80px; height: 80px;"></i>
+                            </div>
+                            <p class="text-gray-500">Your cart is empty</p>
+                        </div>
+                        
+                        <div id="cartContent" class="hidden">
+                            <div id="cartItems" class="space-y-4 mb-6">
+                                <!-- Cart items will be populated by JavaScript -->
+                            </div>
+                            
+                            <div class="border-t border-gray-200 pt-4 space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Subtotal</span>
+                                    <span id="subtotalAmount">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Delivery Fee</span>
+                                    <span>₹40</span>
+                                </div>
+                                <div class="flex justify-between font-semibold pt-2 border-t border-gray-200">
+                                    <span>Total</span>
+                                    <span id="totalAmount">₹40</span>
+                                </div>
+                            </div>
+                            
+                            <form id="orderForm">
+                                <div class="mt-6 space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                                            Full Name
+                                        </label>
+                                        <div class="relative">
+                                            <i data-lucide="user" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" style="width: 16px; height: 16px;"></i>
+                                            <input
+                                                id="name"
+                                                name="name"
+                                                placeholder="Enter your full name"
+                                                required
+                                                class="pl-9 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
+                                            />
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                                            Email Address
+                                        </label>
+                                        <div class="relative">
+                                            <i data-lucide="mail" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" style="width: 16px; height: 16px;"></i>
+                                            <input
+                                                id="email"
+                                                name="email"
+                                                type="email"
+                                                placeholder="Enter your email address"
+                                                required
+                                                class="pl-9 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
+                                            />
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                                            Phone Number
+                                        </label>
+                                        <div class="relative">
+                                            <i data-lucide="phone" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" style="width: 16px; height: 16px;"></i>
+                                            <input
+                                                id="phone"
+                                                name="phone"
+                                                placeholder="Enter your phone number"
+                                                required
+                                                class="pl-9 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
+                                            />
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                                            Delivery Address
+                                        </label>
+                                        <div class="relative">
+                                            <i data-lucide="map-pin" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" style="width: 16px; height: 16px;"></i>
+                                            <input
+                                                id="address"
+                                                name="address"
+                                                placeholder="Enter your full address"
+                                                required
+                                                class="pl-9 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
+                                            />
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                                            Payment Method
+                                        </label>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="paymentMethod" value="Cash on Delivery" checked class="mr-2">
+                                                Cash on Delivery
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="paymentMethod" value="Online Payment" class="mr-2">
+                                                Online Payment
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                                            Upload Prescription (Optional)
+                                        </label>
+                                        <div class="border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-500 flex items-center justify-between">
+                                            <span id="fileNameDisplay">No file chosen</span>
+                                            <button class="btn btn-ghost btn-sm" id="uploadBtn">
+                                                <i data-lucide="upload" style="width: 16px; height: 16px;" class="mr-1"></i> Choose File
+                                            </button>
+                                            <input type="file" id="prescriptionUpload" class="hidden" accept="image/*,.pdf" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                                            Special Instructions
+                                        </label>
+                                        <textarea
+                                            id="specialInstructions"
+                                            name="specialInstructions"
+                                            placeholder="Any special instructions for delivery..."
+                                            class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-800 resize-none h-24"
+                                        ></textarea>
+                                    </div>
+                                    
+                                    <button id="placeOrderBtn" class="btn btn-primary w-full" type="submit">
+                                        <i data-lucide="check" style="width: 16px; height: 16px;" class="mr-2"></i> Place Order
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">MediCare</h3>
+                    <p>Providing quality healthcare services and innovative solutions to improve your wellbeing.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="ai-doctor.html">AI Doctor</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="medicine-delivery.html">Medicine Delivery</a></li>
+                        <li><a href="hospital-beds.html">Hospital Beds</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Telemedicine</a></li>
+                        <li><a href="#">Health Checkups</a></li>
+                        <li><a href="#">Medical Tourism</a></li>
+                        <li><a href="#">Home Healthcare</a></li>
+                        <li><a href="#">Emergency Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i data-lucide="map-pin"></i>
+                            <span>123 Healthcare Avenue, Medical District, City, Country</span>
+                        </li>
+                        <li>
+                            <i data-lucide="phone"></i>
+                            <span>+91 1800 123 4567</span>
+                        </li>
+                        <li>
+                            <i data-lucide="mail"></i>
+                            <span>info@medicare-example.com</span>
+                        </li>
+                        <li>
+                            <i data-lucide="clock"></i>
+                            <span>Mon-Sat: 8:00 AM - 10:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2023</span> MediCare. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button id="chat-toggle" class="chat-toggle">
+            <i data-lucide="message-circle"></i>
+        </button>
+        
+        <div id="chat-window" class="chat-window hidden">
+            <div class="chat-header">
+                <h3>MediCare Chat</h3>
+                <button id="close-chat" class="close-chat">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages"></div>
+            
+            <div class="chat-input">
+                <input type="text" id="chat-input" placeholder="Type your message..." disabled>
+                <button class="send-button" disabled>
+                    <i data-lucide="send"></i>
+                </button>
+            </div>
+            
+            <div class="login-prompt">
+                Please <a href="login.html">log in</a> to chat with our support team
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="medicine-delivery.js"></script>
+</body>
+</html>

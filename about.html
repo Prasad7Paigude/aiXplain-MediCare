@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - MediCare</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="about.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-text">MediCare</div>
+            </a>
+            
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="ai-doctor.html" class="nav-link">AI Doctor</a>
+                <a href="medicine-delivery.html" class="nav-link">Medicine Delivery</a>
+                <a href="hospital-beds.html" class="nav-link">Hospital Beds</a>
+                <a href="training.html" class="nav-link">Training</a>
+                <a href="about.html" class="nav-link active">About</a>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-ghost">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            
+            <div class="user-profile hidden relative">
+                <div class="user-info cursor-pointer" id="userProfileToggle">
+                    <span class="user-name"></span>
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            
+                <!-- Dropdown Menu -->
+                <div class="dropdown-menu hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50" id="dropdownMenu">
+                    <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                    <a href="#" id="logoutBtn" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+                </div>
+            </div>
+<!--             
+            Auth Buttons Section (for non-logged-in users
+            <div class="auth-buttons">
+                <a href="login.html" class="btn">Login</a>
+                <a href="register.html" class="btn">Register</a>
+            </div> -->
+            
+            <!-- Footer Section 
+            <footer>
+                <p>  MediCare. All rights reserved.</p>
+            </footer> -->
+            
+            <button class="menu-button">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 fade-in">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">About MediCare</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Providing innovative healthcare solutions to improve lives worldwide
+                </p>
+            </div>
+            
+            <!-- Our Mission -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+                <div class="fade-in">
+                    <img src="assets/mission.png" alt="Our Mission" class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="fade-in">
+                    <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+                    <p class="text-gray-600 mb-4">
+                        At MediCare, our mission is to provide accessible, high-quality healthcare services to everyone, regardless of location or socioeconomic status. We leverage technology to bridge gaps in healthcare delivery and ensure that quality medical care reaches those who need it most.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        We strive to integrate cutting-edge AI solutions with traditional medical expertise to create a healthcare ecosystem that is efficient, personalized, and effective. Our goal is to empower individuals to take control of their health through education, prevention, and timely intervention.
+                    </p>
+                    <div class="flex items-center">
+                        <i data-lucide="check-circle" class="icon-md text-primary mr-2"></i>
+                        <span class="font-medium">Making healthcare accessible to all</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Our Vision -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20 md:flex-row-reverse">
+                <div class="order-1 md:order-2 fade-in">
+                    <img src="assets/Vision.png" alt="Our Vision" class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="order-2 md:order-1 fade-in">
+                    <h2 class="text-2xl font-bold mb-4">Our Vision</h2>
+                    <p class="text-gray-600 mb-4">
+                        We envision a world where quality healthcare is available to everyone, everywhere. A world where AI and technology support medical professionals to provide the best possible care, and where preventive healthcare is emphasized to reduce the burden of disease.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        MediCare aims to be at the forefront of this healthcare revolution, pioneering new approaches to diagnosis, treatment, and care delivery. We want to create a future where health systems are patient-centered, data-driven, and outcome-focused.
+                    </p>
+                    <div class="flex items-center">
+                        <i data-lucide="target" class="icon-md text-primary mr-2"></i>
+                        <span class="font-medium">Building the future of healthcare</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Our Team -->
+            <div class="mb-20">
+                <h2 class="text-2xl font-bold mb-8 text-center">Our Leadership Team</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center fade-in">
+                        <img src="assets/Dr01.png" alt="Dr. Smith" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-semibold">Dr. John Smith</h3>
+                        <p class="text-primary mb-2">Founder & CEO</p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            With over 20 years of experience in healthcare management and medical practice, Dr. Smith leads our mission to transform healthcare delivery.
+                        </p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-primary"><i data-lucide="linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i data-lucide="twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i data-lucide="mail"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center fade-in">
+                        <img src="assets/Dr03.png.crdownload" alt="Dr. Johnson" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-semibold">Dr. Sarah Johnson</h3>
+                        <p class="text-primary mb-2">Chief Medical Officer</p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            A renowned specialist in integrative medicine, Dr. Johnson ensures that all our services adhere to the highest medical standards and best practices.
+                        </p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-primary"><i data-lucide="linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i data-lucide="twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i data-lucide="mail"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center fade-in">
+                        <img src="assets/Dr02.png" alt="Mr. Lee" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-semibold">Michael Lee</h3>
+                        <p class="text-primary mb-2">Chief Technology Officer</p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            With a background in AI and healthcare technology, Michael leads our technical team in developing innovative solutions that power our services.
+                        </p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-primary"><i data-lucide="linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i data-lucide="twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i data-lucide="mail"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Our Values -->
+            <div class="mb-20">
+                <h2 class="text-2xl font-bold mb-8 text-center">Our Core Values</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 fade-in">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i data-lucide="heart" class="icon-md text-primary"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Compassion</h3>
+                        <p class="text-gray-600 text-sm">
+                            We approach healthcare with empathy and understanding, ensuring that every patient feels heard, respected, and cared for.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 fade-in">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i data-lucide="shield" class="icon-md text-primary"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Integrity</h3>
+                        <p class="text-gray-600 text-sm">
+                            We uphold the highest ethical standards in all our interactions, ensuring transparency, honesty, and accountability.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 fade-in">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i data-lucide="lightbulb" class="icon-md text-primary"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Innovation</h3>
+                        <p class="text-gray-600 text-sm">
+                            We continuously seek new and better ways to deliver healthcare, embracing technology and creative solutions.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 fade-in">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i data-lucide="check-square" class="icon-md text-primary"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Excellence</h3>
+                        <p class="text-gray-600 text-sm">
+                            We strive for the highest quality in all our services, continuously improving and maintaining rigorous standards.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact CTA -->
+            <div class="bg-primary text-white p-8 md:p-12 rounded-xl text-center">
+                <h2 class="text-2xl font-bold mb-4">Join Us in Our Mission</h2>
+                <p class="text-white/90 mb-6 max-w-2xl mx-auto">
+                    Whether you're a healthcare professional, technology expert, or simply share our vision, we'd love to hear from you. Together, we can transform healthcare for the better.
+                </p>
+                <a href="#" class="btn btn-light">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">MediCare</h3>
+                    <p>Providing quality healthcare services and innovative solutions to improve your wellbeing.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="ai-doctor.html">AI Doctor</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="medicine-delivery.html">Medicine Delivery</a></li>
+                        <li><a href="hospital-beds.html">Hospital Beds</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Telemedicine</a></li>
+                        <li><a href="#">Health Checkups</a></li>
+                        <li><a href="#">Medical Tourism</a></li>
+                        <li><a href="#">Home Healthcare</a></li>
+                        <li><a href="#">Emergency Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i data-lucide="map-pin"></i>
+                            <span>123 Healthcare Avenue, Medical District, City, Country</span>
+                        </li>
+                        <li>
+                            <i data-lucide="phone"></i>
+                            <span>+91 1800 123 4567</span>
+                        </li>
+                        <li>
+                            <i data-lucide="mail"></i>
+                            <span>info@medicare-example.com</span>
+                        </li>
+                        <li>
+                            <i data-lucide="clock"></i>
+                            <span>Mon-Sat: 8:00 AM - 10:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2023</span> MediCare. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button id="chat-toggle" class="chat-toggle">
+            <i data-lucide="message-circle"></i>
+        </button>
+        
+        <div id="chat-window" class="chat-window hidden">
+            <div class="chat-header">
+                <h3>MediCare Chat</h3>
+                <button id="close-chat" class="close-chat">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages"></div>
+            
+            <div class="chat-input">
+                <input type="text" id="chat-input" placeholder="Type your message..." disabled>
+                <button class="send-button" disabled>
+                    <i data-lucide="send"></i>
+                </button>
+            </div>
+            
+            <div class="login-prompt">
+                Please <a href="login.html">log in</a> to chat with our support team
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="about.js"></script>
+    <script>
+        document.getElementById('userProfileToggle').addEventListener('click', function() {
+            document.getElementById('dropdownMenu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
