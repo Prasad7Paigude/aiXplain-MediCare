@@ -1,6 +1,6 @@
 # 📌 MediCare: AI-Powered Healthcare for Rural India
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green)]([#](https://github.com/Prasad7Paigude/aiXplain-MediCare))--> **CLICK FOR LIVE DEMO** 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green)](aixplain-medicare.vercel.app)--> **CLICK FOR LIVE DEMO** 
 
 
 [![Hackathon Submission](https://img.shields.io/badge/Hackathon-Submission-blue)](https://github.com/Prasad7Paigude/aiXplain-MediCare)--> **CLICK FOR GITHUB REPOSITORY** 
@@ -64,7 +64,7 @@ Healthcare in rural India is severely limited due to a lack of medical facilitie
 - 🔗 **GitHub Repository:** [MediCare Project](https://github.com/Prasad7Paigude/aiXplain-MediCare)
 - 📹 **Demo Video:** [Video Link](https://drive.google.com/file/d/15wJH_lmH-Mrjd7Q0s_6cgbQqsG3cFVWr/view?usp=drive_link)
 - 📑 **Presentation (PPT):** [Upload and Insert Link](#)
-- 🌐 **Live Project:** [Live Project Demo](https://github.com/Prasad7Paigude/aiXplain-MediCare)
+- 🌐 **Live Project:** [Live Project Demo](aixplain-medicare.vercel.app)
 
 ## 📊 Impact Metrics
 📍 **5X Faster Access to Medical Advice** – AI-driven consultations reduce waiting time.  
