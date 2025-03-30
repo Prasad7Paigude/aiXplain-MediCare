@@ -47,18 +47,28 @@ print(f"MAIL_USE_TLS: {app.config['MAIL_USE_TLS']}")
 # Initialize mail
 mail = Mail(app)
 
-# Connect to MongoDB
+# Connect to MongoDB Atlas
 try:
-    client = MongoClient(os.getenv('MONGODB_URI', 'mongodb://localhost:27017/Medicare'))
-    db = client.get_database()
-    print("✅ MongoDB Connected Successfully")
+    # Use the connection string from your request
+    MONGODB_URI = os.getenv('MONGODB_URI', 'mongodb+srv://medicare162733:medicare162733@medicare-cluster.ybeetkj.mongodb.net/')
+    client = MongoClient(MONGODB_URI)
+    
+    # Specify the database name explicitly
+    db = client.get_database('Medicare')
+    
+    # Test the connection
+    client.admin.command('ping')
+    
+    print("✅ MongoDB Atlas Connected Successfully")
     
     # List all collections
     collections = db.list_collection_names()
     print("📊 Available collections:", collections)
     
 except Exception as e:
-    print("❌ MongoDB Connection Error:", e)
+    print("❌ MongoDB Atlas Connection Error:", e)
+    print("⚠️ Connection Details:")
+    print(f"URI: {MONGODB_URI[:25]}...") # Only show beginning of URI for security
 
 # Configure upload folder for prescriptions
 UPLOAD_FOLDER = 'uploads'
